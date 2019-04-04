@@ -1,0 +1,4 @@
+shop_index,2
+item_index,2
+item_type_code,2
+day_available,2

@@ -1,0 +1,280 @@
+000 M Cap
+001 Yellow Tee
+002 Mowzy Tee (Red)
+003 Mint Polo
+004 Runner's Tank
+005 Mowzy Sweatshirt
+006 Brown Baby Tee
+007 Pink Blouse
+008 Peach Turtleneck
+009 Classic Jeans
+00A Khaki Chinos
+00B Green Warm-ups
+00C Beach Sandals
+00D 3-for-1 Sock Pak
+00E Mowzy
+00F Backpack
+010 Canvas Tote
+011 Nylon Waist Pack
+012 Stronger Cap
+013 Star Cap
+014 Knit Casquette
+015 Svelte Parka
+016 Denim Blouse
+017 Cupid Tee
+018 Satin Camisole
+019 Vest-Blouse Combo
+01A Leather Shorts
+01B Skinny Jeans (Black)
+01C Denim Miniskirt
+01D Plaid Miniskirt
+01E Knee-high Boots
+01F Cowboy Boots (Red)
+020 Purple Bikini
+021 Black Bikini
+022 Studded Belt
+023 D+B Ring
+024 Biker Jacket
+025 Patchy Biker Jacket
+026 Cotton Biker Vest
+027 Tiger Biker Vest
+028 Fitted Coat
+029 Tartan Coat
+02A Pink Gauze Shirt
+02B Grey Gauze Shirt
+02C Black Raglan Tee
+02D Blue Raglan Tee
+02E Bondage Pants (Black)
+02F Skirt Bondage Combo
+030 Bondage Half-pants
+031 Work Boots
+032 Purple Sneaks
+033 Custom Sneaks
+034 White Rubbersoles
+035 Double-spiked Cuff
+036 Spiked Choker
+037 Red Mohawk Set
+038 Gold Padlock Necklace
+039 Custom Waist Pack
+03A Tiger Waist Pack
+03B Lace Bonnet
+03C Ribbon Bonnet
+03D Ribbon Mini-hat
+03E Mini-crown
+03F Goth Bondage Coat
+040 Asymmetric Jersey
+041 Spiderweb Jersey
+042 Bunny Parka
+043 Shirt & Arm Warmers
+044 Bandage Pants
+045 Red Two-tier Skirt
+046 Double-breasted Suit
+047 Lace-up Dress
+048 Ribbon-laced Dress
+049 Vampire Dress
+04A Ribbon Shoes
+04B Platform Shoes
+04C Cape
+04D Frilly Parasol
+04E Blond Wig
+04F M'sieur Lapin
+050 White Dragon
+051 Light and Shadow
+052 Yin Blazer
+053 Midnight Thoughts
+054 Plum Blossom
+055 Vernal Equinox
+056 Autumn Dragon
+057 Sun Emperor
+058 Dragon Lady
+059 A Flash, A Spark
+05A One Man, No Equals
+05B Old Wisdom Made New
+05C Typhoon
+05D Dandy Hat
+05E Zephyr's Elegy
+05F Tree Leaf Serenade
+060 Dappled Light Waltz
+061 Zephyr's Sonata
+062 North Wind Concerto
+063 Spring Breeze Rhapsody
+064 Sky Blue Paean
+065 High Sun Paean
+066 Sunflower
+067 Hydrangea
+068 Tulip
+069 Sunshine One-piece
+06A Flower One-piece
+06B Youth's March
+06C Young Folks
+06D When You're in Love
+06E Love in a Heartbeat
+06F Let's Dance
+070 Young American
+071 Funky Shades
+072 Love & Peace
+073 Slogan Bandannas
+074 Cocktail Queen
+075 Regal Presence
+076 Tweed Gentleman
+077 Lavender Lotus
+078 Classic Half-boots
+079 Crimson Stilettos
+07A Silver Baron
+07B Liberty Duke
+07C Royal Splendor
+07D Revolution
+07E Sparkling Flight
+07F Darling Lock
+080 Pitter Patter Plaid
+081 Frilly Camisole
+082 Aqua Puffy Blouse
+083 Retro Dot One-piece
+084 Easy Breezy Dress
+085 Green With Envy
+086 Lemon Sherbet
+087 Mint Ice Cream
+088 Spangle Sorbet
+089 Iris Gelato
+08A Strawberry Chocolate
+08B Mint Choco-chip
+08C Angel Frill Skirt
+08D Citrus Shorts
+08E Sparkling Capris
+08F Ribbon Cargos
+090 Flaming Knee-highs
+091 Cloud Nine Scarf
+092 Lucky Rainbow Bracelets
+093 Rounded Specs
+094 Shining Star Dangles
+095 Princess Ring
+096 Happy Necklace
+097 Heart Pochette
+098 Polka Dot Bag
+099 Wadatsumi
+09A Fudo
+09B Dharma
+09C Suiten
+09D Haramitsu
+09E Amida
+09F Ashura
+0A0 Brahma
+0A1 Komokuten
+0A2 Togenkyo
+0A3 Inazuma
+0A4 Hannya
+0A5 Aun
+0A6 Gekirin
+0A7 Karma
+0A8 Naraka
+0A9 Plumeria Ring
+0AA Gold Band
+0AB Coral Necklace
+0AC Turquoise Necklace
+0AD Garden Bracelet
+0AE Wheel Bracelet
+0AF Gold Bangle
+0B0 Pureheart Pendant
+0B1 Skull Pendant
+0B2 Chandelier Dangles
+0B3 Diamond Studs
+0B4 Plumeria Studs
+0B5 Navel Piercing
+0B6 Heart Nails
+0B7 Blue Nails
+0B8 Silver Screen Sweetheart
+0B9 Silver Screen Starlet
+0BA Plain Shirt
+0BB Negative Polo
+0BC Positive Polo
+0BD Pink Stripe
+0BE Black Stripe
+0BF Lovely Camisole
+0C0 White Cache-coeur
+0C1 Chic Black Turtleneck
+0C2 Midday Kitten Knit
+0C3 Black Jeans
+0C4 Brown Jeans
+0C5 Skinny Jeans (Blue)
+0C6 My Favorite One-piece
+0C7 Angelic One-piece
+0C8 Lovely One-piece
+0C9 Simple Mules
+0CA Blossom Mules
+0CB Enamel Pumps
+0CC Simple Necktie
+0CD Waffle Necktie
+0CE Seattle
+0CF San Francisco
+0D0 Las Vegas
+0D1 Chicago
+0D2 New York
+0D3 Negotiator
+0D4 Hey Boy
+0D5 Hey Girl
+0D6 Hey Everybody
+0D7 Alive
+0D8 Sabotage
+0D9 3 MC's 1 DJ
+0DA Pass the Mic
+0DB Won't Stop
+0DC Don't Stop
+0DD Camouflage
+0DE Darkness
+0DF Denim Coveralls
+0E0 Work Coveralls
+0E1 Gold Die
+0E2 Wild Boar Pendant
+0E3 King Pendant
+0E4 Skull Deck
+0E5 Camo Deck
+0E6 CAT Deck
+0E7 WEWY Promo Coat
+0E8 WEWY Promo Tee
+0E9 WEWY Promo Tote
+0EA Pinky's Lipstick
+0EB Lollipop's Parka
+0EC Big Guy's Buckle
+0ED Pi-Face's Cap
+0EE Pi-Face's Coat
+0EF Pi-Face's Jeans
+0F0 Pi-Face's Bandanna
+0F1 Iron Maiden's One-piece
+0F2 Shades's Headphones
+0F3 Sis's Pendant
+0F4 Wizard's Glasses
+0F5 My Phones
+0F6 Your Cap
+0F7 Her Stuffed Animal
+0F8 Angel Feather
+0F9 Gakuran
+0FA Sailor Suit
+0FB Boys' Uniform with Blazer
+0FC Girls' Uniform with Blazer
+0FD Girls' Uniform with Sweater
+0FE Head Honcho
+0FF Yukata
+100 The Dead Slammurai
+101 The Black Slammurai
+102 Nose Glasses
+103 Samurai Wig
+104 Mr. Mew Suit
+105 New Year's Gift
+106 Pirate Hat
+107 Potted Plant
+108 Mr. Claus
+109 Mrs. Claus
+10A Black Book Bag
+10B Red Book Bag
+10C Biker Gloves
+10D Maid Costume
+10E Supermask's Mask
+10F Ninja Garb
+110 Samurai Helm
+111 Samurai Armor
+112 Fan of the Rising Sun
+113 Samurai Sword
+114 Solid Slammer
+115 False Teeth
+116 Lucky Mallet
+117 Mr. Ducky

@@ -1,0 +1,10 @@
+threads_index,2
+brand,1
+equip_type,1
+price,4
+bravery,2
+defense,2
+attack,2
+hp,2
+ability,2
+unknown,6,list

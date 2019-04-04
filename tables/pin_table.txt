@@ -1,0 +1,10 @@
+pin_index,2
+unk0,3,list
+brand,1
+unk1,1,list
+pin_class,1
+unk2,4,list
+price,2
+unk3,28,list
+evolves,2x2,list
+unk4,6,list

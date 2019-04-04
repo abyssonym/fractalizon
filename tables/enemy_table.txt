@@ -1,0 +1,6 @@
+unk1,10,list
+hp,2
+attack,2
+unk2,30,list
+drops,4x2,list
+drop_rates,4x2,list

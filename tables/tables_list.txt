@@ -1,0 +1,7 @@
+EnemyObject             enemy_table.txt         dcc58       181
+FoodObject              food_table.txt          3d30200     42
+ThreadsObject           threads_table.txt       3d30600     280
+ShopItemObject          shop_item_table.txt     3d32e00     570
+QuestObject             quest_table.txt         3d34000     180
+SwagObject              swag_table.txt          3d34c00     150
+PinObject               pin_table.txt           3f77600     304

@@ -1,0 +1,42 @@
+000 Hamburger
+001 Double Burger
+002 French Fries
+003 Hot Dog
+004 Special Dog
+005 Donuts
+006 Muffin Set
+007 Nuggets
+008 Salad
+009 The "Tatsumi" Burger
+00A Definitivo Chili Dog
+00B Cola
+00C OJ
+00D Coffee
+00E House Blend
+00F Minestrone
+010 Corn Chowder
+011 Bouillabaisse
+012 Pumpkin Soup
+013 Shoyu Ramen
+014 Miso Ramen
+015 Shio Ramen
+016 Tonkotsu Ramen
+017 Shadow Steak Ramen
+018 Mystic Ramen
+019 Absolute Shadow Ramen
+01A Insta-noodles
+01B HP Tablets
+01C ATK Capsules
+01D DEF Medicine
+01E Sync Bar
+01F Ginseng
+020 Curious Mushrooms
+021 Cordyceps
+022 Viper Drink
+023 Royal Jelly Q10
+024 Mako Sinnergy
+025 BRAVE+
+026 Vanilla Soft Serve
+027 Soft Serve Swirl
+028 Pancakes
+029 Crepe

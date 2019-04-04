@@ -1,0 +1,3 @@
+quest_index,2
+item_index,2
+unknown,12,list

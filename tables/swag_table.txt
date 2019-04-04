@@ -1,0 +1,3 @@
+unk1,4,list
+price,2
+unk2,2,list

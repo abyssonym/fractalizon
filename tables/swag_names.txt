@@ -1,0 +1,132 @@
+000 Colorful Thread
+001 Sleek Silk
+002 Cozy Down
+003 Sparkling Silver
+004 Fluffy Cotton
+005 Stunning Crystals
+006 Durable Leather
+007 Pretty Ribbon
+008 Choice Meat
+009 Sweet, Sweet Onions
+00A Mystery Liquid
+00B Red Viper
+00C Swallow's Nest
+00D Crimson Chili
+00E Jumbo Chicken
+00F Extra Fine Noodles
+010 My First Wallet
+011 Trendy Wallet
+012 Fat Cat Wallet
+013 (CD) Track 1
+014 (CD) Track 2
+015 (CD) Track 3
+016 (CD) Track 4
+017 (CD) Track 5
+018 (CD) Track 6
+019 (CD) Track 7
+01A (CD) Track 8
+01B (CD) Track 9
+01C (CD) Track 10
+01D (CD) Track 11
+01E (CD) Track 12
+01F (CD) Track 13
+020 (CD) Track 14
+021 (CD) Track 15
+022 (CD) Track 16
+023 (CD) Track 17
+024 (CD) Track 18
+025 (CD) Track 19
+026 (CD) Track 20
+027 (CD) Track 21
+028 (CD) Track 22
+029 (CD) Track 23
+02A (CD) Track 24
+02B (CD) Track 25
+02C (CD) Track 26
+02D (CD) Track 27
+02E (CD) Track 28
+02F (CD) Track 29
+030 (CD) Track 30
+031 (CD) Track 31
+032 (CD) Track 32
+033 (CD) Track 33
+034 (CD) Track 34
+035 (S) Phone Menu
+036 (S) Extra Slot
+037 (S) Safe Landing (Neku)
+038 (S) Technical EXP
+039 (S) Shutdown
+03A (S) Brand Awareness
+03B (S) Dash
+03C (S) Game Cleared
+03D (S) ESP Cards
+03E (S) Fusion Boost (Shiki)
+03F (S) Safe Landing (Shiki)
+040 (S) ATK Boost (Shiki)
+041 (S) DEF Boost (Shiki)
+042 (S) Backlash
+043 (S) Block
+044 (S) Jump
+045 (S) High & Low Cards
+046 (S) Fusion Boost (Joshua)
+047 (S) Safe Landing (Joshua)
+048 (S) ATK Boost (Joshua)
+049 (S) DEF Boost (Joshua)
+04A (S) Phone Camera
+04B (S) Sidestep
+04C (S) Levitate
+04D (S) Suit Cards
+04E (S) Fusion Boost (Beat)
+04F (S) Safe Landing (Beat)
+050 (S) ATK Boost (Beat)
+051 (S) DEF Boost (Beat)
+052 (S) Air Cancel
+053 (S) Block
+054 (S) Air Time
+055 (S) Chain 4
+056 (S) Chain 16
+057 (S) Retry Battles
+058 (S) Hard
+059 (S) Hollow Leg
+05A (S) Ultimate
+05B (S) Easy
+05C (S) Noise Report
+05D (S) Tin Pin Versus
+05E (S) Mingle Mode
+05F (B) Dual-screen Combat
+060 (B) Top-screen Combat
+061 (B) Bottom-screen Combat
+062 (B) Follow That Puck!
+063 (B) So I Beat the Enemy...
+064 (B) CONTROLS / Drag
+065 (B) CONTROLS / Touch
+066 (B) CONTROLS / Slash
+067 (B) CONTROLS / Press
+068 (B) Use Obstacles
+069 (B) Wearing Pins
+06A (B) Sub-slots
+06B (B) Boot/Reboot
+06C (B) Negative Statuses
+06D (B) Pin Growth/Evolution
+06E (B) Psych Affinities
+06F (B) Escaping from Battle
+070 (B) Scanning
+071 (B) Enemy Encounters
+072 (B) Chained Battles
+073 (B) Red Noise Symbols
+074 (B) Blue Noise Symbols
+075 (B) Green Noise Symbols
+076 (B) Yellow Noise Symbols
+077 (B) Black Noise Symbols
+078 (B) Memes
+079 (B) Talk to Your Partner
+07A (B) Mail Icon
+07B (B) Be a Trendsetter
+07C (B) Shutdown
+07D (B) Shop Clerks
+07E (B) Item Abilities
+07F (B) Shop Quests
+080 (B) Tin Pin Slammer
+081 (B) Tin Pin Lineup
+082 (B) Charge Slam
+083 (B) Spin Slam

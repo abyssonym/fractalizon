@@ -1,0 +1,181 @@
+000 082-Uzuki Yashiro (Berserk)/084-Koki Kariya (Berserk)
+001 079-Bass Reaper
+002 087-Megumi Kitaniji?
+003 078-Baritone Reaper
+004 011-Orchesprog
+005 001-Dixiefrog
+006 053-Carcinofolk
+007 055-Carcinometal
+008 008-Tradishfrog
+009 057-Carcinopunk
+00A ???
+00B 088-Vespertilio Canor
+00C 015-Mosh Grizzly
+00D 016-Circle Pit Grizly?
+00E 089-Pteropus Canor
+00F 093-Tigris Cantus
+010 046-Ragtime Drake
+011 093-Tigris Cantus?
+012 093-Tigris Cantus?
+013 020-Thrash Mink
+014 021-Death Thrash Mink
+015 ???
+016 ???
+017 038-Chaoti Corehog
+018 085-Sho Minamimoto/092-Leo Cantus
+019 086-Sho Minamimoto (Taboo)
+01A 064-Pachy R & R
+01B 085-Sho Minamimoto/092-Leo Cantus
+01C 066-Woolly AOR
+01D 065-Mammoth R & B
+01E 085-Sho Minamimoto/092-Leo Cantus
+01F ???
+020 032-Jelly Germanic
+021 091-Ovis Cantus
+022 094-Anguis Cantus
+023 051-Dub Rhino?
+024 052-Trance Rhino
+025 086-Sho Minamimoto (Taboo)
+026 036-Classi Corehog
+027 085-Sho Minamimoto/092-Leo Cantus
+028 033-Hard Corehog
+029 ???
+02A 028-Brit Popguin
+02B ???
+02C 059-Easterraven
+02D 093-Tigris Cantus?
+02E 045-Doom Metal Drake
+02F 093-Tigris Cantus?
+030 061-Swing Shark?
+031 090-Cornix Canor
+032 024-Shrew Wave
+033 014-Grunge Wolf
+034 012-Garage Wolf
+035 010-Bigbansprog?
+036 007-Fifenfrog
+037 056-Carcinosamps
+038 005-Orchefrog
+039 054-Carcinoska
+03A 094-Anguis Cantus
+03B 079-Bass Reaper
+03C 094-Anguis Cantus
+03D 077-Tenor Reaper
+03E 044-Progfox
+03F 078-Baritone Reaper
+040 077-Tenor Reaper
+041 076-Pig Mazurka
+042 094-Anguis Cantus
+043 094-Anguis Cantus
+044 041-Eurobeat Boomer
+045 071-Pig Jig?
+046 072-Pig Rhumba/074-Pig Polka
+047 095-Draco Cantus
+048 011-Orchesprog/018-Gabba Bat
+049 095-Draco Cantus
+04A 095-Draco Cantus
+04B 068-Pig Cha-cha?
+04C 068-Pig Cha-cha
+04D 095-Draco Cantus
+04E 095-Draco Cantus
+04F ???
+050 071-Pig Jig?
+051 ???
+052 044-Progfox/080-Reaper Beat
+053 001-Dixiefrog?
+054 ???
+055 044-Progfox/080-Reaper Beat
+056 ???
+057 072-Pig Rhumba/074-Pig Polka
+058 ???
+059 072-Pig Rhumba/074-Pig Polka
+05A 069-Pig Carol/071-Pig Jig
+05B ???
+05C 071-Pig Jig?
+05D 069-Pig Carol
+05E ???
+05F 024-Shrew Wave?
+060 015-Mosh Grizzly/037-Metal Corehog
+061 ???
+062 048-Neoclassical Drake/067-Pig Samba/069-Pig Carol/076-Pig Mazurka
+063 069-Pig Carol?
+064 087-Megumi Kitaniji
+065 067-Pig Samba/072-Pig Rhumba/074-Pig Polka
+066 011-Orchesprog/018-Gabba Bat
+067 068-Pig Cha-cha?
+068 068-Pig Cha-cha?
+069 068-Pig Cha-cha?
+06A 024-Shrew Wave?
+06B 083-Koki Kariya
+06C ???
+06D ???
+06E 024-Shrew Wave?
+06F 011-Orchesprog/018-Gabba Bat
+070 ???
+071 067-Pig Samba
+072 024-Shrew Wave?
+073 083-Koki Kariya
+074 040-2-step Boomer
+075 039-Jungle Boomer
+076 ???
+077 043-Ambiefox
+078 042-Psychedelifox
+079 025-Shrew Gazer
+07A ???
+07B 082-Uzuki Yashiro (Berserk)/084-Koki Kariya (Berserk)
+07C 027-Electro Popguin
+07D 026-J Popguin
+07E 070-Pig Salsa
+07F 030-Jelly Swechno
+080 031-Jelly Neocoustic
+081 029-Jelly Madchester
+082 072-Pig Rhumba/074-Pig Polka
+083 083-Koki Kariya
+084 071-Pig Jig?
+085 072-Pig Rhumba/074-Pig Polka
+086 083-Koki Kariya
+087 050-Minimal Rhino
+088 049-House Rhino
+089 037-Metal Corehog
+08A 071-Pig Jig
+08B 024-Shrew Wave?
+08C 035-Melodi Corehog
+08D 034-Emo Corehog
+08E 082-Uzuki Yashiro (Berserk)/084-Koki Kariya (Berserk)
+08F 023-Death Metal Mink
+090 022-Grindcore Minks
+091 022-Grindcore Minks
+092 069-Pig Carol?
+093 072-Pig Rhumba
+094 ???
+095 060-Nefastraven
+096 081-Uzuki Yashiro
+097 058-Decadraven
+098 047-Goth Metal Drake
+099 048-Neoclassical Drake
+09A ???
+09B 024-Shrew Wave?
+09C 063-Fusion Shark
+09D 062-Bebop Shark
+09E 081-Uzuki Yashiro
+09F 019-Happycore Bat
+0A0 018-Gabba Bat
+0A1 017-Wall of Grizzly
+0A2 069-Pig Carol?
+0A3 ???
+0A4 082-Uzuki Yashiro (Berserk)/084-Koki Kariya (Berserk)
+0A5 013-Alterna Wolf
+0A6 073-Pig Tango
+0A7 068-Pig Cha-cha?
+0A8 005-Orchefrog?
+0A9 002-Bigbanfrog
+0AA 024-Shrew Wave?
+0AB 081-Uzuki Yashiro
+0AC 006-Southerfrog
+0AD 009-Choirfrog
+0AE 074-Pig Polka
+0AF 004-Brassbanfrog
+0B0 003-Funkfrog
+0B1 002-Bigbanfrog
+0B2 075-Pig Butch
+0B3 081-Uzuki Yashiro
+0B4 010-Bigbansprog

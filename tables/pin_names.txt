@@ -1,0 +1,304 @@
+000 Ice Blow
+001 Ice Risers
+002 Frozen Cool
+003 Blizzard Cool
+004 Earthshake
+005 Sexy D
+006 Sexy +
+007 Sexy B
+008 Straitjacket
+009 Blown Kiss
+00A D+B
+00B Happy Beam
+00C Natural Magnum
+00D Wonder Magnum
+00E Beauty Launcher
+00F One Love Magnum
+010 Hounder Magnum
+011 Bear Hug Magnum
+012 Sparkle Beam
+013 Lil' Terror Bazooka
+014 Angel Magnum
+015 Cutie Beam
+016 Lovely Beam
+017 Sexy Beam
+018 Superfine Beam
+019 Playmate Beam
+01A Purity Launcher
+01B Innocence Beam
+01C Pop Pendulum
+01D Casual Pendulum
+01E Love Me Tether
+01F Pamper Me Tether
+020 Sweet Talk Tether
+021 Natural Puppy
+022 Frantic
+023 Blink Step
+024 First Gear
+025 Top Gear
+026 Egg Bomb
+027 Meteor Magnet
+028 Meteor Hook
+029 Meteor Spike
+02A Strong Heart
+02B Strong Spirit
+02C Strong Body
+02D Strong 'n' Proud
+02E Poison Scorpion
+02F Poison Skull
+030 Poison Bones
+031 Poison Chains
+032 Rapier Glance
+033 Love Charge
+034 Guardian Angel
+035 Archangel
+036 Energy Factor
+037 Speed Factor
+038 Supply Factor
+039 Chaos
+03A Pavo Real
+03B Lightning Moon
+03C Lightning Storm
+03D Burning Cherry
+03E Burning Melon
+03F Burning Berry
+040 Aqua Monster
+041 Aqua Ghost
+042 Aqua Demon
+043 Cornered Rat
+044 Blast Warning
+045 Candle Service
+046 Shock Warning
+047 Kinetic Warning
+048 Impact Warning
+049 Storm Warning
+04A Electric Warning
+04B Teleport Warning
+04C Shout
+04D Psych Support
+04E Stopper Spark
+04F Mus Rattus
+050 Masamune
+051 Onikiri
+052 Nenekiri
+053 Kanesada
+054 Enju
+055 Yoshimitsu
+056 Ichimonji
+057 Nikkari
+058 Mikazuki
+059 Shiro
+05A Unjo
+05B Izanagi
+05C Murasame
+05D Rakuyo
+05E Kusanagi
+05F Ohabari
+060 Zantetsu
+061 Mitama
+062 Izanami
+063 Onmyo
+064 Konohana
+065 Konohana Sakuya
+066 Jupiter of the Monkey
+067 Long Live the Rock
+068 Long Live the Ice
+069 Long Live the Floe
+06A Eyes Full of Hope
+06B Eyes Full of Light
+06C Hot Gaze
+06D Sizzling Gaze
+06E Cold Stare
+06F Icy Stare
+070 Wassup Thunder!
+071 Wassup Lightning!
+072 Wassup Voltage!
+073 Indestructo Man
+074 Hip Snake
+075 Octo Squeeze
+076 Snail Squeeze
+077 Vacu Squeeze
+078 Gimme Dat Sheep
+079 Gimme Dat Elephant
+07A Gimme Dat Hippo
+07B Crackle Pop Barrier
+07C Splish Splash Barrier
+07D Creepy Weepy Barrier
+07E Whirlygig Juggle
+07F Healing Bunny
+080 Healing Flamingo
+081 Healing Whale
+082 Croc Leisure
+083 Monkey Leisure
+084 Bear Leisure
+085 Squirrel Leisure
+086 Sparkle Charge
+087 Handsfree Healing
+088 Sheep Heavenly
+089 Distortion
+08A Velocity Attack
+08B Velocity Tackle
+08C Demon's Hatred
+08D Go 2 Hell
+08E Go 2 Heaven
+08F Lightning Anger
+090 Lightning Rage
+091 LIVE!
+092 Peace Full
+093 Thanx
+094 D.I.Y.
+095 Tigre Punks
+096 One Stone, Many Birds
+097 One Stroke, Vast Wealth
+098 One Grain, Infinite Promise
+099 Self Found, Others Lost
+09A Fiery Spirit, Spirited Fire
+09B Flames Afar, Foes Aflame
+09C Final Pyre, All Expired
+09D Blue Blood Burns Blue
+09E Live Slow, Die Fast
+09F Local Fire, Distant Sea
+0A0 June Hearth, January Fan
+0A1 Swift Storm, Swift End
+0A2 Black Sky, White Bolt
+0A3 Follow Suit, Fall in Turn
+0A4 Dragon Couture
+0A5 Lolita Bat
+0A6 Skull Rabbit
+0A7 Kaleidoscope
+0A8 Lolita Emblem
+0A9 Lolita Chopper
+0AA Link Spider
+0AB Web Spider
+0AC Network Spider
+0AD Lolita Mic
+0AE Spider's Silk
+0AF Leopard
+0B0 Lolita Skull
+0B1 Black Rose
+0B2 Lapin Angelique
+0B3 Thunder Pawn
+0B4 Lightning Pawn
+0B5 Aqua Pawn
+0B6 Swing Bishop
+0B7 Pegaso Bishop
+0B8 King Arthur
+0B9 Excalibur
+0BA Thunder Rook
+0BB Lightning Rook
+0BC Jack's Knight
+0BD King's Knight
+0BE Queen's Knight
+0BF Her Royal Highness
+0C0 Pegaso
+0C1 Lazy Bomber
+0C2 Flower of Flame
+0C3 Flower of Fire
+0C4 Kewl Line
+0C5 Dope Line
+0C6 Wild Line
+0C7 Fly Line
+0C8 Fresh Line
+0C9 Microcosmic Pull
+0CA Cosmic Pull
+0CB Macrocosmic Pull
+0CC Diss
+0CD Wild Boar
+0CE Big Bang
+0CF Big Crunch
+0D0 Swift as the Wind
+0D1 Hushed as the Wood
+0D2 Fierce as the Flame
+0D3 Stalwart as the Mount
+0D4 Black Mars
+0D5 Black Jupiter
+0D6 Black Uranus
+0D7 Black Venus
+0D8 Black Saturn
+0D9 Black Mercury
+0DA Righty Cat
+0DB Brainy Cat
+0DC Lefty Cat
+0DD One Jump from Eden
+0DE One Skip from Eden
+0DF One Hop from Eden
+0E0 One Step from Eden
+0E1 Eden's Door
+0E2 Visionary Blend
+0E3 Red Skull
+0E4 Gatito
+0E5 Tin Pin Fire
+0E6 Tin Pin Custom
+0E7 Tin Pin Wind
+0E8 Tin Pin Blade
+0E9 Tin Pin Wheel
+0EA Tin Pin Dash
+0EB Tin Pin Thrift
+0EC Tin Pin Hellfire
+0ED Tin Pin Sunscorch
+0EE Tin Pin Rocker
+0EF Tin Pin Artist
+0F0 Tin Pin Devil
+0F1 Tin Pin Ifrit
+0F2 Tin Pin Shiva
+0F3 Tin Pin Golem
+0F4 Tin Pin Bahamut
+0F5 1 Yen
+0F6 5 Yen
+0F7 10 Yen
+0F8 50 Yen
+0F9 100 Yen
+0FA 500 Yen
+0FB 1,000 Yen
+0FC 5,000 Yen
+0FD 10,000 Yen
+0FE Scarletite
+0FF Rare Metal
+100 Tektite
+101 Adamantite
+102 Orichalcum
+103 Shadow Matter
+104 Dark Matter
+105 Rhyme
+106 Lucky Star
+107 Lady Luck
+108 Lucky Panda
+109 Pyrokinesis
+10A Shockwave
+10B Cure Drink
+10C Force Rounds
+10D Psychokinesis
+10E Thunderbolt
+10F The Eyes Have It
+110 I Live for Food
+111 Walk On, Walk Off
+112 Me Time is Free Time
+113 Fuji Yama
+114 Daruma
+115 Sushi
+116 Shinobi
+117 Tigris
+118 Corehog
+119 Jelly
+11A Shark
+11B Leo
+11C Ovis
+11D Cornix
+11E Popguin
+11F Pteropus
+120 Mink
+121 Boomer
+122 Sprog
+123 Fox
+124 Bat
+125 Rhino
+126 Shrew
+127 Woolly
+128 Raven
+129 Drake
+12A Anguis
+12B Pig
+12C Carcin
+12D Grizzly
+12E Wolf
+12F Frog

@@ -1,0 +1,23 @@
+#104          :D+B104,WB104,MR1,Edoga
+#A-EAST       :LapinAngelique
+#AMX          :AMX
+#CADOI        :Cadoi
+#DOGENZAKA    :RamenDon,CosmicCorner
+#MOLCO        :SH,MR2,TP,D+BM
+#SHIBUDEPT    :Pegaso,BelAir,Mind&Body
+#SHIBUKYU     :DragonCouture,MR4,SunshineShibukyu
+#SPAIN        :MexicanDog
+#STATIONSIDE  :PavoRealSS,KuraKura,SunshineSS
+#TOWA         :Towa
+104:01,02,03,04
+A-EAST:29
+AMX:0a
+CADOI:1f,20,21
+DOGENZAKA:26,27
+HACHIKO:06,07,08
+MOLCO:13,14,15,16
+SHIBUDEPT:1a,1b,1c
+SHIBUKYU:2b,2c,2d
+#SPAIN:0b?,0c
+SPAIN:0c
+TOWA:23
