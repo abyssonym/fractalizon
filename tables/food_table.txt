@@ -1,3 +1,12 @@
-unk1,4,list
+food_index,2
+bites,2
 price,2
-unk2,14,list
+unk2,2,list
+status,2
+boost,2
+sync,2
+unk3,2,list
+neku,1
+shiki,1
+joshua,1
+beat,1

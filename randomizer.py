@@ -32,6 +32,14 @@ for nametype in ['pin', 'threads', 'food', 'swag', 'enemy']:
 
 
 class EnemyObject(TableObject):
+    flag = 'd'
+    flag_description = 'enemy drops'
+    custom_random_enable = True
+
+    mutate_attributes = {
+            'drop_rates': None,
+        }
+
     def __repr__(self):
         return '{0:0>2X} {2:>5} {3:>4} {1} :: {4}'.format(
             self.index, self.name, self.hp, self.attack,
@@ -54,11 +62,33 @@ class EnemyObject(TableObject):
         return [d if d < 1000 else d-1000 for d in self.drops]
 
     @cached_property
-    def drop_names(self):
+    def old_drop_names(self):
         names = []
         for d in self.fixed_drop_indexes:
             names.append(nameslibrary['pin'][d])
         return names
+
+    @property
+    def drop_names(self):
+        names = []
+        for d in self.drops:
+            names.append(nameslibrary['pin'][d % 1000])
+        return names
+
+    @cached_property
+    def old_drops_pins(self):
+        return [PinObject.get(d) for d in self.fixed_drop_indexes]
+
+    def mutate_drops(self):
+        new_drops = []
+        for (i, d) in enumerate(self.old_drops_pins):
+            other = self.get_similar().old_drops_pins[i]
+            if other in PinObject.yen_pins:
+                new = d.get_similar(PinObject.yen_pins, override_outsider=True)
+            else:
+                new = d.get_similar()
+            new_drops.append(new.index)
+        self.drops = new_drops
 
 
 class ItemObject(TableObject):
@@ -122,6 +152,25 @@ class ItemObject(TableObject):
 
         return self.rank
 
+    def price_cleanup(self):
+        if self.price == self.old_data['price']:
+            return
+
+        price = self.price * 2
+        counter = 0
+        while price >= 100:
+            price = int(round(price / 10.0))
+            counter += 1
+            if random.randint(1, 10) == 10:
+                break
+        price = price * (10**counter)
+        self.price = price / 2
+        if self.price % 10:
+            self.price += 10 - (self.price % 10)
+
+    def preclean(self):
+        self.price_cleanup()
+
 
 class PinObject(ItemObject):
     namekey = 'pin'
@@ -129,6 +178,17 @@ class PinObject(ItemObject):
     @property
     def intershuffle_valid(self):
         return True
+
+    @classproperty
+    def yen_pins(cls):
+        if hasattr(PinObject, '_yen_pins'):
+            return PinObject._yen_pins
+
+        #yen_pins = [p for p in PinObject.every if p.name.endswith(' Yen')]
+        yen_pins = [p for p in PinObject.every if 245 <= p.index <= 260]
+
+        PinObject._yen_pins = yen_pins
+        return PinObject.yen_pins
 
     @cached_property
     def drop_rank(self):
@@ -139,7 +199,7 @@ class PinObject(ItemObject):
             for difficulty, drop, drop_rate in zip(
                     DIFFICULTY_FACTORS, e.fixed_drop_indexes, e.drop_rates):
                 if drop == self.index:
-                    assert self.name in e.drop_names
+                    assert self.name in e.old_drop_names
                     rank = drop_rate * e.rank / (difficulty * 10000.0)
                     rank = e.rank / difficulty
                     if rank > 0:
@@ -218,14 +278,62 @@ class PinObject(ItemObject):
         return self.rank
 
 
+class AbilityObject(TableObject):
+    flag = 'a'
+    flag_description = 'threads abilities'
+    custom_random_enable = 't'
+
+
 class ThreadsObject(ItemObject):
+    flag = 't'
+    flag_description = 'threads stats'
+    custom_random_enable = 't'
     namekey = 'threads'
 
+    mutate_attributes = {
+        'price': None,
+        'bravery': None,
+        'defense': None,
+        'attack': None,
+        'hp': None,
+        }
+    randomselect_attributes = ['ability']
+
+    def cleanup(self):
+        for attr in self.mutate_attributes:
+            if self.old_data[attr] == 0:
+                setattr(self, attr, 0)
+
+        if AbilityObject.flag not in get_flags():
+            self.ability = self.old_data['ability']
+
+
 class FoodObject(ItemObject):
+    flag = 'f'
+    flag_description = 'food'
+    custom_random_enable = True
     namekey = 'food'
 
+    mutate_attributes = {
+        'bites': None,
+        'price': None,
+        'boost': None,
+        'sync': None,
+        }
+
+    def cleanup(self):
+        if self.sync == self.old_data['sync']:
+            return
+        self.sync = int(round(self.sync * 2 / 10.0)) * 5
+
+
 class SwagObject(ItemObject):
+    flag = 't'
+    custom_random_enable = 't'
     namekey = 'swag'
+    mutate_attributes = {
+        'price': None,
+        }
 
 
 class QuestObject(TableObject):
@@ -305,6 +413,9 @@ if __name__ == '__main__':
                       custom_degree=True)
 
         clean_and_write(ALL_OBJECTS)
+
+        for t in ThreadsObject.ranked:
+            print t.old_data['price'], t.price, t.name
 
         finish_interface()
 

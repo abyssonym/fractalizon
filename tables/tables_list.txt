@@ -1,3 +1,4 @@
+AbilityObject           empty.txt               0           1
 EnemyObject             enemy_table.txt         dcc58       181
 FoodObject              food_table.txt          3d30200     42
 ThreadsObject           threads_table.txt       3d30600     280
