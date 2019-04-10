@@ -29,7 +29,7 @@
 01C 066-Woolly AOR
 01D 065-Mammoth R & B
 01E 085-Sho Minamimoto/092-Leo Cantus
-01F ???
+01F Panthera Cantus
 020 032-Jelly Germanic
 021 091-Ovis Cantus
 022 094-Anguis Cantus
@@ -41,7 +41,7 @@
 028 033-Hard Corehog
 029 ???
 02A 028-Brit Popguin
-02B ???
+02B Panthera Cantus
 02C 059-Easterraven
 02D 093-Tigris Cantus?
 02E 045-Doom Metal Drake
@@ -84,15 +84,15 @@
 053 001-Dixiefrog?
 054 ???
 055 044-Progfox/080-Reaper Beat
-056 ???
+056 Reaper Beat
 057 072-Pig Rhumba/074-Pig Polka
-058 ???
+058 Reaper Beat
 059 072-Pig Rhumba/074-Pig Polka
 05A 069-Pig Carol/071-Pig Jig
-05B ???
+05B Reaper Beat
 05C 071-Pig Jig?
 05D 069-Pig Carol
-05E ???
+05E Reaper Beat
 05F 024-Shrew Wave?
 060 015-Mosh Grizzly/037-Metal Corehog
 061 ???

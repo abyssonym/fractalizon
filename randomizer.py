@@ -47,7 +47,7 @@ class EnemyObject(TableObject):
 
     @cached_property
     def intershuffle_valid(self):
-        return '???' not in self.name
+        return '???' not in self.name and set(self.drops) != {0}
 
     @cached_property
     def rank(self):
@@ -89,6 +89,10 @@ class EnemyObject(TableObject):
                 new = d.get_similar()
             new_drops.append(new.index)
         self.drops = new_drops
+
+    def mutate(self):
+        super(EnemyObject, self).mutate()
+        self.mutate_drops()
 
 
 class ItemObject(TableObject):
@@ -413,9 +417,6 @@ if __name__ == '__main__':
                       custom_degree=True)
 
         clean_and_write(ALL_OBJECTS)
-
-        for t in ThreadsObject.ranked:
-            print t.old_data['price'], t.price, t.name
 
         finish_interface()
 

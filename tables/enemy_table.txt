@@ -1,4 +1,6 @@
-unk1,10,list
+unk1,7,list
+pp,1
+exp,2
 hp,2
 attack,2
 unk2,30,list
