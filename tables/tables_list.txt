@@ -1,3 +1,4 @@
+VanillaObject           empty.txt               0           1
 AbilityObject           empty.txt               0           1
 EnemyObject             enemy_table.txt         dcc58       181
 FoodObject              food_table.txt          3d30200     42

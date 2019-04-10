@@ -31,6 +31,11 @@ for nametype in ['pin', 'threads', 'food', 'swag', 'enemy']:
             nameslibrary[nametype][index] = name
 
 
+class VanillaObject(TableObject):
+    flag = 'v'
+    flag_description = 'nothing'
+
+
 class EnemyObject(TableObject):
     flag = 'd'
     flag_description = 'enemy drops'
@@ -93,6 +98,17 @@ class EnemyObject(TableObject):
     def mutate(self):
         super(EnemyObject, self).mutate()
         self.mutate_drops()
+
+    def cleanup(self):
+        if 'lowlevel' in get_activated_codes():
+            self.exp = 0
+
+        if 'easymodo' in get_activated_codes():
+            self.hp = 1
+            self.attack = 1
+
+        if 'collector' in get_activated_codes():
+            self.drop_rates = [10000] * 4
 
 
 class ItemObject(TableObject):
@@ -157,6 +173,9 @@ class ItemObject(TableObject):
         return self.rank
 
     def price_cleanup(self):
+        if 'ghostthief' in get_activated_codes():
+            self.price = 0
+
         if self.price == self.old_data['price']:
             return
 
@@ -304,6 +323,9 @@ class ThreadsObject(ItemObject):
     randomselect_attributes = ['ability']
 
     def cleanup(self):
+        if 'fierce' in get_activated_codes():
+            self.bravery = 1
+
         for attr in self.mutate_attributes:
             if self.old_data[attr] == 0:
                 setattr(self, attr, 0)
@@ -326,6 +348,12 @@ class FoodObject(ItemObject):
         }
 
     def cleanup(self):
+        if 'dietaryrestrictions' in get_activated_codes() and self.status < 3:
+            self.boost = 0
+
+        if 'foodie' in get_activated_codes():
+            self.bites = 1
+
         if self.sync == self.old_data['sync']:
             return
         self.sync = int(round(self.sync * 2 / 10.0)) * 5
@@ -411,10 +439,20 @@ if __name__ == '__main__':
                        and g not in [TableObject]]
 
         codes = {'easymodo': ['easymodo'],
+                 'collector': ['collector'],
+                 'ghostthief': ['ghostthief', 'ghosthief'],
+                 'fierce': ['fierce'],
+                 'foodie': ['foodie'],
+
+                 'dietaryrestrictions': ['dietaryrestrictions'],
+                 'lowlevel': ['lowlevel', 'llg'],
                 }
 
         run_interface(ALL_OBJECTS, snes=False, codes=codes,
                       custom_degree=True)
+
+        for f in FoodObject.every:
+            print f.name, f.status, f.boost
 
         clean_and_write(ALL_OBJECTS)
 
