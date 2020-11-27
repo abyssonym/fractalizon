@@ -1,3 +1,5 @@
 quest_index,2
 item_index,2
-unknown,12,list
+materials,3x2,list
+amounts,3,list
+unknown,3,list

@@ -198,6 +198,8 @@ class ItemObject(TableObject):
 class PinObject(ItemObject):
     namekey = 'pin'
 
+    randomselect_attributes = ['brand']
+
     @property
     def intershuffle_valid(self):
         return True
@@ -300,6 +302,10 @@ class PinObject(ItemObject):
 
         return self.rank
 
+    def cleanup(self):
+        if self in self.yen_pins or ShopItemObject.flag not in get_flags():
+            self.brand = self.old_data['brand']
+
 
 class AbilityObject(TableObject):
     flag = 'a'
@@ -320,7 +326,17 @@ class ThreadsObject(ItemObject):
         'attack': None,
         'hp': None,
         }
-    randomselect_attributes = ['ability']
+
+    @classproperty
+    def randomselect_attributes(self):
+        randomselect_attributes = []
+        if AbilityObject.flag in get_flags():
+            randomselect_attributes.append('ability')
+
+        if ShopItemObject.flag in get_flags():
+            randomselect_attributes.append('brand')
+
+        return randomselect_attributes
 
     def cleanup(self):
         if 'fierce' in get_activated_codes():
@@ -329,9 +345,6 @@ class ThreadsObject(ItemObject):
         for attr in self.mutate_attributes:
             if self.old_data[attr] == 0:
                 setattr(self, attr, 0)
-
-        if AbilityObject.flag not in get_flags():
-            self.ability = self.old_data['ability']
 
 
 class FoodObject(ItemObject):
@@ -369,6 +382,17 @@ class SwagObject(ItemObject):
 
 
 class QuestObject(TableObject):
+    def __repr__(self):
+        s = '{0:0>4X} {1:0>4X} {2} {3}'.format(
+            self.quest_index, self.item_index, self.item, self.unknown)
+        for m, a in zip(self.materials, self.amounts):
+            if a == 0:
+                continue
+            item = (PinObject.every + ThreadsObject.every +
+                    FoodObject.every + SwagObject.every)[m]
+            s += '\n    {0}x {1}'.format(a, item.name)
+        return s
+
     @classmethod
     def get_by_quest_index(cls, quest_index):
         candidates = [q for q in QuestObject.every
@@ -387,6 +411,11 @@ class QuestObject(TableObject):
         return (PinObject.every + ThreadsObject.every +
                 FoodObject.every + SwagObject.every)[self.item_index]
 
+    @property
+    def brand(self):
+        if hasattr(self.item, 'brand'):
+            return self.item.brand
+
     @cached_property
     def rank(self):
         return self.old_item.rank
@@ -400,16 +429,31 @@ class QuestObject(TableObject):
         return self.item.name
 
 
+class ShopCastObject(TableObject): pass
+
+
 class ShopItemObject(TableObject):
+    flag = 'b'
+    flag_description = 'shop stocks and brands'
+
+    randomselect_attributes = ['day_available']
+
+    @classproperty
+    def after_order(cls):
+        return [PinObject, ThreadsObject]
+
     def __repr__(self):
-        return '{0:0>2X}-{1:0>3X} {2:0>4X} {3:0>2} {4}'.format(
+        return '{0:0>2X}-{1:0>3X} {2:0>4X} {3:0>2} {4:0>2} {5}'.format(
             self.shop_index, self.index, self.item_index,
+            self.item.brand
+            if hasattr(self.item, 'brand') and self.item.brand is not None
+            else 'XX',
             self.day_available, self.item.name)
 
     @cached_property
     def old_item(self):
         item_index = self.old_data['item_index']
-        if self.item_index >= 0x320:
+        if item_index >= 0x320:
             return QuestObject.get_by_quest_index(item_index)
 
         return (PinObject.every + ThreadsObject.every +
@@ -417,15 +461,194 @@ class ShopItemObject(TableObject):
 
     @property
     def item(self):
-        if self.item_index >= 0x320:
-            return QuestObject.get_by_quest_index(self.item_index)
+        if (hasattr(self, '_previous_item_index')
+                and self.item_index == self._previous_item_index):
+            return self._previous_item
 
-        return (PinObject.every + ThreadsObject.every +
-                FoodObject.every + SwagObject.every)[self.item_index]
+        if self.item_index >= 0x320:
+            item = QuestObject.get_by_quest_index(self.item_index)
+        else:
+            item = (PinObject.every + ThreadsObject.every +
+                    FoodObject.every + SwagObject.every)[self.item_index]
+
+        self._previous_item_index = self.item_index
+        self._previous_item = item
+        return self.item
+
+    def get_brand(self, old=False):
+        if old:
+            item = self.old_item
+        else:
+            item = self.item
+
+        if isinstance(item, QuestObject):
+            if old:
+                item = item.old_item
+            else:
+                item = item.item
+
+        if hasattr(item, 'brand'):
+            if old:
+                return item.old_data['brand']
+            else:
+                return item.brand
+        return None
 
     @cached_property
     def rank(self):
         return self.old_item.rank
+
+    @classmethod
+    def get_items_by_shop_index(cls, index, old=False):
+        if old:
+            return [si for si in ShopItemObject.every
+                    if si.old_data['shop_index'] == index]
+        return [si for si in ShopItemObject.every if si.shop_index == index]
+
+    @classmethod
+    def get_shop_brands(cls, index):
+        if index in ShopItemObject.restaurants:
+            return set([])
+
+        items = ShopItemObject.get_items_by_shop_index(index, old=True)
+        brands = Counter([i.get_brand(old=True) for i in items
+                          if i.get_brand(old=True) is not None])
+        if not brands:
+            return set([])
+
+        maxbrand = brands[max(brands, key=lambda b: brands[b])]
+        brands = set([b for b in brands if brands[b] >= (maxbrand/2) >= 1])
+        return brands
+
+    @classmethod
+    def get_primary_brand(cls, index):
+        if index in ShopItemObject.restaurants:
+            return set([])
+
+        items = ShopItemObject.get_items_by_shop_index(index, old=True)
+        brands = Counter([i.get_brand(old=True) for i in items
+                          if i.get_brand(old=True) is not None])
+        brands = [b for b in brands if brands[b] >= len(items)/2]
+        if len(brands) == 1:
+            return brands[0]
+        return None
+
+    @classproperty
+    def shop_indexes(cls):
+        if hasattr(ShopItemObject, '_shop_indexes'):
+            return ShopItemObject._shop_indexes
+
+        indexes = set([si.old_data['shop_index']
+                       for si in ShopItemObject.every])
+        ShopItemObject._shop_indexes = indexes
+        return ShopItemObject.shop_indexes
+
+    @classproperty
+    def restaurants(cls):
+        if hasattr(ShopItemObject, '_restaurants'):
+            return ShopItemObject._restaurants
+
+        restaurants = set([])
+        for sindex in ShopItemObject.shop_indexes:
+            items = ShopItemObject.get_items_by_shop_index(sindex, old=True)
+            foods = [i for i in items if isinstance(i, FoodObject)
+                     or (isinstance(i, QuestObject)
+                         and isinstance(i.item, FoodObject))]
+            if len(foods) >= len(items)/2:
+                restaurants.add(sindex)
+
+        ShopItemObject._restaurants = restaurants
+        return ShopItemObject.restaurants
+
+    @classmethod
+    def randomize_brands(cls):
+        for o in ThreadsObject.every + PinObject.every:
+            if o in PinObject.yen_pins:
+                continue
+            o.reseed('brand')
+            o.brand = o.get_similar().old_data['brand']
+
+    @classmethod
+    def randomize_all(cls):
+        MAX_SHOP_INVENTORY = 32
+
+        super(ShopItemObject, cls).randomize_all()
+
+        ShopItemObject.class_reseed('brands')
+        ShopItemObject.randomize_brands()
+
+        ShopItemObject.class_reseed('shops')
+        to_assign = list(ShopItemObject.every)
+        random.shuffle(to_assign)
+
+        shops = defaultdict(list)
+        for sio in to_assign:
+            sio.reseed('shop')
+
+            candidates = [
+                c for c in ShopItemObject.every
+                if len(shops[c.old_data['shop_index']]) <= MAX_SHOP_INVENTORY]
+
+            if sio.get_brand() is None:
+                temp = [s2 for s2 in candidates
+                        if s2.get_brand() is None
+                        and type(sio.item) is type(s2.old_item)]
+            else:
+                temp = [
+                    s2 for s2 in candidates
+                    if s2.get_brand(old=True) is not None
+                    and s2.get_brand(old=True) == sio.get_brand()]
+
+            candidates = temp if temp else candidates
+
+            if shops:
+                temp = [c for c in candidates
+                        if sio.item not in shops[c.old_data['shop_index']]]
+                candidates = temp if temp else candidates
+
+                max_shop = max(shops, key=lambda s: len(shops[s]))
+                max_shop_size = shops[max_shop]
+                if max_shop_size > 0:
+                    max_shops = [s for s in shops
+                                 if len(shops[s]) >= max_shop_size]
+                    temp = [c for c in candidates
+                            if c.old_data['shop_index'] not in max_shops]
+                    candidates = temp if temp else candidates
+
+            chosen = random.choice(candidates)
+            sio.shop_index = chosen.old_data['shop_index']
+            shops[sio.shop_index].append(sio.item)
+            assert len(shops[sio.shop_index]) <= MAX_SHOP_INVENTORY
+
+    @classmethod
+    def full_cleanup(cls):
+        for sio in ShopItemObject.every:
+            similars = [s for s in ShopItemObject.every if s.item == sio.item]
+            assert sio in similars
+            day_available = min([s.day_available for s in similars])
+            for s in similars:
+                s.day_available = day_available
+
+        sorted_shop_items = sorted(
+            ShopItemObject.every,
+            key=lambda o: (
+                o.shop_index, o.item_type_code,
+                -o.item.price if hasattr(o.item, 'price') else 9999999999,
+                o.item_index))
+        sorted_shop_items = [
+            (o.shop_index, o.item_index, o.item_type_code, o.day_available)
+            for o in sorted_shop_items]
+
+        assert len(sorted_shop_items) == len(ShopItemObject.every)
+        for sio, (shop_index, item_index, item_type_code, day_available) in \
+                zip(ShopItemObject.every, sorted_shop_items):
+            sio.shop_index = shop_index
+            sio.item_index = item_index
+            sio.item_type_code = item_type_code
+            sio.day_available = day_available
+            del(sio._property_cache['old_item'])
+
+        super(ShopItemObject, cls).full_cleanup()
 
 
 if __name__ == '__main__':
@@ -451,10 +674,31 @@ if __name__ == '__main__':
         run_interface(ALL_OBJECTS, snes=False, codes=codes,
                       custom_degree=True)
 
-        for f in FoodObject.every:
-            print f.name, f.status, f.boost
-
         clean_and_write(ALL_OBJECTS)
+
+        '''
+        indexes = set([si.shop_index for si in ShopItemObject.every])
+        for i in sorted(indexes):
+            print '{0:0>2X}'.format(i), ShopItemObject.get_shop_brands(i)
+        print
+        for si in ShopItemObject.every:
+            print si
+        print
+        for t in PinObject.every:
+            if t.brand >= 13:
+                print t
+        for qi in QuestObject.every:
+            print qi
+
+        for sco in ShopCastObject.every:
+            print map(hex, sco.unknown1)
+            print map(hex, sco.unknown2)
+            print map(hex, sco.unlockable_items)
+            print
+
+        for i in xrange(0x2E):
+            print i, len([si for si in ShopItemObject.every if si.shop_index == i])
+        '''
 
         finish_interface()
 

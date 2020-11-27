@@ -3,6 +3,7 @@ AbilityObject           empty.txt               0           1
 EnemyObject             enemy_table.txt         dcc58       181
 FoodObject              food_table.txt          3d30200     42
 ThreadsObject           threads_table.txt       3d30600     280
+ShopCastObject          shop_cast_table.txt     3d32200     35
 ShopItemObject          shop_item_table.txt     3d32e00     570
 QuestObject             quest_table.txt         3d34000     180
 SwagObject              swag_table.txt          3d34c00     150

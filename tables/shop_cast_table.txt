@@ -1,0 +1,3 @@
+unknown1,4x2,list
+unknown2,9x2,list
+unlockable_items,9x2,list
