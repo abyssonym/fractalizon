@@ -14,7 +14,8 @@ from os import path
 from time import time, sleep, gmtime
 from collections import Counter
 from itertools import combinations
-from sys import argv
+from sys import argv, exc_info
+from traceback import print_exc
 
 
 VERSION = 1
@@ -187,7 +188,7 @@ class ItemObject(TableObject):
             if random.randint(1, 10) == 10:
                 break
         price = price * (10**counter)
-        self.price = price / 2
+        self.price = price // 2
         if self.price % 10:
             self.price += 10 - (self.price % 10)
 
@@ -607,7 +608,7 @@ class ShopItemObject(TableObject):
                 candidates = temp if temp else candidates
 
                 max_shop = max(shops, key=lambda s: len(shops[s]))
-                max_shop_size = shops[max_shop]
+                max_shop_size = len(shops[max_shop])
                 if max_shop_size > 0:
                     max_shops = [s for s in shops
                                  if len(shops[s]) >= max_shop_size]
@@ -653,9 +654,8 @@ class ShopItemObject(TableObject):
 
 if __name__ == '__main__':
     try:
-        print ('TWEWY randomizer v%s' % VERSION)
-        print '-' * 79
-        print
+        print('TWEWY randomizer v%s' % VERSION)
+        print('{0}\n'.format('-' * 79))
 
         ALL_OBJECTS = [g for g in globals().values()
                        if isinstance(g, type) and issubclass(g, TableObject)
@@ -702,6 +702,7 @@ if __name__ == '__main__':
 
         finish_interface()
 
-    except Exception, e:
-        print 'ERROR: %s' % e
-        raw_input('Press Enter to close this program. ')
+    except Exception:
+        print_exc()
+        print('ERROR:', exc_info()[1])
+        input('Press Enter to close this program. ')
