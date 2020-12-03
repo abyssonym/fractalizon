@@ -41,7 +41,7 @@ class VanillaObject(TableObject):
 class EnemyObject(TableObject):
     flag = 'd'
     flag_description = 'enemy drops'
-    custom_random_enable = True
+    custom_random_enable = 'd'
 
     mutate_attributes = {
             'drop_rates': None,
@@ -364,7 +364,7 @@ class ThreadsObject(ItemObject):
 class FoodObject(ItemObject):
     flag = 'f'
     flag_description = 'food'
-    custom_random_enable = True
+    custom_random_enable = 'f'
     namekey = 'food'
 
     mutate_attributes = {
@@ -449,6 +449,7 @@ class ShopCastObject(TableObject): pass
 class ShopItemObject(TableObject):
     flag = 'b'
     flag_description = 'shop stocks and brands'
+    custom_random_enable = 'b'
 
     randomselect_attributes = ['day_available']
 
@@ -580,7 +581,8 @@ class ShopItemObject(TableObject):
             if o in PinObject.yen_pins:
                 continue
             o.reseed('brand')
-            o.brand = o.get_similar().old_data['brand']
+            o.brand = o.get_similar(
+                random_degree=ShopItemObject.random_degree).old_data['brand']
 
     def randomize(self):
         super(ShopItemObject, self).randomize()
@@ -791,8 +793,8 @@ class ShopItemObject(TableObject):
 
 if __name__ == '__main__':
     try:
-        print('TWEWY randomizer v%s' % VERSION)
-        print('{0}\n'.format('-' * 79))
+        print('TWEWY "Fractalizon" randomizer v%s' % VERSION)
+        print('{0}'.format('-' * 79))
 
         ALL_OBJECTS = [g for g in globals().values()
                        if isinstance(g, type) and issubclass(g, TableObject)
