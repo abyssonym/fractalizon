@@ -582,6 +582,17 @@ class ShopItemObject(TableObject):
             o.reseed('brand')
             o.brand = o.get_similar().old_data['brand']
 
+    def randomize(self):
+        super(ShopItemObject, self).randomize()
+        if isinstance(self.item, PinObject):
+            candidates = [p for p in PinObject.every
+                          if p not in PinObject.yen_pins]
+            assert self.item in candidates
+            new_item = self.item.get_similar(
+                candidates, random_degree=ShopItemObject.random_degree)
+            self.item_index = ItemObject.get_index_by_item(new_item)
+            assert self.item == new_item
+
     @classmethod
     def randomize_all(cls):
         super(ShopItemObject, cls).randomize_all()
