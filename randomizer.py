@@ -20,6 +20,7 @@ from traceback import print_exc
 
 VERSION = 1
 DIFFICULTY_FACTORS = [2, 1, 0.61, 0.4]
+MAX_SHOP_INVENTORY = 32
 
 nameslibrary = defaultdict(dict)
 for nametype in ['pin', 'threads', 'food', 'swag', 'enemy']:
@@ -172,6 +173,18 @@ class ItemObject(TableObject):
             o._rank = sorted_items.index(o) / float(len(sorted_items)-1)
 
         return self.rank
+
+    @classmethod
+    def get_by_index(cls, index):
+        item = (PinObject.every + ThreadsObject.every +
+                FoodObject.every + SwagObject.every)[index]
+        return item
+
+    @classmethod
+    def get_index_by_item(cls, item):
+        index = (PinObject.every + ThreadsObject.every +
+                 FoodObject.every + SwagObject.every).index(item)
+        return index
 
     def price_cleanup(self):
         if 'ghostthief' in get_activated_codes():
@@ -571,8 +584,6 @@ class ShopItemObject(TableObject):
 
     @classmethod
     def randomize_all(cls):
-        MAX_SHOP_INVENTORY = 32
-
         super(ShopItemObject, cls).randomize_all()
 
         ShopItemObject.class_reseed('brands')
@@ -622,6 +633,114 @@ class ShopItemObject(TableObject):
             assert len(shops[sio.shop_index]) <= MAX_SHOP_INVENTORY
 
     @classmethod
+    def full_preclean(cls):
+        SHOPS_FILENAME = path.join(tblpath, 'accessible_shops.txt')
+        area_shops = {}
+        for line in open(SHOPS_FILENAME):
+            line = line.strip()
+            if not (line and line[0] != '#'):
+                continue
+            area, shops = line.split(':')
+            shops = {int(s, 0x10) for s in shops.split(',')}
+            area_shops[area] = shops
+
+        AREAS_FILENAME = path.join(tblpath, 'accessible_areas.txt')
+        day_shops = defaultdict(set)
+        for line in open(AREAS_FILENAME):
+            line = line.strip()
+            if not (line and line[0] != '#'):
+                continue
+            weekday, areas = line.split(':')
+            week, day = weekday.split('-')
+            week, day = int(week), int(day)
+            day = ((week-1) * 7) + day
+            areas = areas.split(',')
+            for area in areas:
+                day_shops[day] |= area_shops[area]
+
+        def ensure_item_access(index, day):
+            item = ItemObject.get_by_index(index)
+            ensure_shops = sorted(day_shops[day])
+
+            existing_this = [sio for sio in ShopItemObject.every
+                             if sio.item is item
+                             and not hasattr(sio, '_is_protected')]
+            if existing_this:
+                chosen = random.choice(existing_this)
+            else:
+                shuffled_shop_items = sorted(
+                    ShopItemObject.every,
+                    key=lambda sio: (not hasattr(sio, '_is_protected'),
+                                     sio.signature))
+                seen_items = set([])
+                chosen = None
+                for sio in shuffled_shop_items:
+                    if (sio.item in seen_items
+                            and not hasattr(sio, '_is_protected')):
+                        chosen = sio
+                        break
+                    seen_items.add(sio.item)
+                chosen.shop_index = None
+
+            chosen.day_available = min(day, chosen.day_available)
+            chosen.item_index = index
+            assert not hasattr(chosen, '_is_protected')
+            chosen._is_protected = True
+            if chosen.shop_index in ensure_shops:
+                return True
+
+            ensure_shops = sorted(ensure_shops)
+            temp = [s for s in ensure_shops
+                    if len(ShopItemObject.get_items_by_shop_index(s))
+                    < MAX_SHOP_INVENTORY]
+            if temp:
+                ensure_shops = temp
+
+            if hasattr(item, 'brand') and item.brand <= 12:
+                temp = [s for s in ensure_shops
+                        if ShopItemObject.get_primary_brand(s) == item.brand]
+                if temp:
+                    ensure_shops = temp
+
+            chosen.shop_index = random.choice(ensure_shops)
+
+        REQS_FILENAME = path.join(tblpath, 'requirements.txt')
+        for line in open(REQS_FILENAME):
+            line = line.strip()
+            if not (line and line[0] != '#'):
+                continue
+            weekday, reqs = line.split(':')
+            week, day = weekday.split('-')
+            week, day = int(week), int(day)
+            day = ((week-1) * 7) + day
+            reqs = reqs.split(',')
+            for req in reqs:
+                if req.startswith('$'):
+                    brand = int(req[1:], 0x10)
+                    used_equip_types = {3}  # ignore top & bottom from start
+                    four_lowest = set([])
+                    while len(four_lowest) < 4:
+                        candidates = sorted(
+                            [t for t in ThreadsObject.every
+                             if t.equip_type not in used_equip_types
+                             and t.brand == brand],
+                            key=lambda tt: (tt.bravery, tt.signature))
+                        if not candidates:
+                            raise Exception("Impossible seed.")
+                        chosen = candidates[0]
+                        four_lowest.add(chosen)
+                        used_equip_types.add(chosen.equip_type)
+                    for t in sorted(four_lowest):
+                        index = ItemObject.get_index_by_item(t)
+                        ensure_item_access(index, day)
+                else:
+                    index = int(req, 0x10)
+                    ensure_item_access(index, day)
+
+        #import pdb; pdb.set_trace()
+        super(ShopItemObject, cls).full_preclean()
+
+    @classmethod
     def full_cleanup(cls):
         for sio in ShopItemObject.every:
             similars = [s for s in ShopItemObject.every if s.item == sio.item]
@@ -651,6 +770,12 @@ class ShopItemObject(TableObject):
 
         super(ShopItemObject, cls).full_cleanup()
 
+    def cleanup(self):
+        if self.item.price == 0 and 'Rare Metal' in self.item.name:
+            self.item.price = 1000
+        if self.item.price == 0 and not isinstance(self.item, QuestObject):
+            print('WARNING: 0 yen item -', self)
+
 
 if __name__ == '__main__':
     try:
@@ -675,31 +800,6 @@ if __name__ == '__main__':
                       custom_degree=True)
 
         clean_and_write(ALL_OBJECTS)
-
-        '''
-        indexes = set([si.shop_index for si in ShopItemObject.every])
-        for i in sorted(indexes):
-            print '{0:0>2X}'.format(i), ShopItemObject.get_shop_brands(i)
-        print
-        for si in ShopItemObject.every:
-            print si
-        print
-        for t in PinObject.every:
-            if t.brand >= 13:
-                print t
-        for qi in QuestObject.every:
-            print qi
-
-        for sco in ShopCastObject.every:
-            print map(hex, sco.unknown1)
-            print map(hex, sco.unknown2)
-            print map(hex, sco.unlockable_items)
-            print
-
-        for i in xrange(0x2E):
-            print i, len([si for si in ShopItemObject.every if si.shop_index == i])
-        '''
-
         finish_interface()
 
     except Exception:
