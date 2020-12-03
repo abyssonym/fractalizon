@@ -109,7 +109,7 @@ class EnemyObject(TableObject):
             self.hp = 1
             self.attack = 1
 
-        if 'collector' in get_activated_codes():
+        if 'extra' in get_activated_codes():
             self.drop_rates = [10000] * 4
 
 
@@ -187,7 +187,7 @@ class ItemObject(TableObject):
         return index
 
     def price_cleanup(self):
-        if 'ghostthief' in get_activated_codes():
+        if 'phantomthief' in get_activated_codes():
             self.price = 0
 
         if self.price == self.old_data['price']:
@@ -375,7 +375,7 @@ class FoodObject(ItemObject):
         }
 
     def cleanup(self):
-        if 'dietaryrestrictions' in get_activated_codes() and self.status < 3:
+        if 'vegan' in get_activated_codes() and self.status < 3:
             self.boost = 0
 
         if 'foodie' in get_activated_codes():
@@ -787,12 +787,12 @@ if __name__ == '__main__':
                        and g not in [TableObject]]
 
         codes = {'easymodo': ['easymodo'],
-                 'collector': ['collector'],
-                 'ghostthief': ['ghostthief', 'ghosthief'],
+                 'extra': ['extra'],
+                 'phantomthief': ['phantomthief'],
                  'fierce': ['fierce'],
                  'foodie': ['foodie'],
 
-                 'dietaryrestrictions': ['dietaryrestrictions'],
+                 'vegan': ['vegan'],
                  'lowlevel': ['lowlevel', 'llg'],
                 }
 
