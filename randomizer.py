@@ -763,8 +763,9 @@ class ShopItemObject(TableObject):
         sorted_shop_items = sorted(
             ShopItemObject.every,
             key=lambda o: (
-                o.shop_index, o.item_type_code,
-                -o.item.price if hasattr(o.item, 'price') else 9999999999,
+                o.shop_index, hasattr(o.item, 'price'),
+                not isinstance(o.item, QuestObject),
+                -o.item.price if hasattr(o.item, 'price') else None,
                 o.item_index))
         sorted_shop_items = [
             (o.shop_index, o.item_index, o.item_type_code, o.day_available)
