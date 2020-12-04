@@ -1,0 +1,24 @@
+The World Ends With You "Fractalizon" Randomizer
+Version:    1
+Date:       December 3, 2020
+URL:        https://www.abyssonym.com/
+            https://www.github.com/abyssonym
+Contact:    https://twitter.com/abyssonym
+
+--- HOW TO USE ---
+    Running the randomizer:
+        Windows users may use the executable file, "twewy_fractalizon.exe". Other users, please run "randomizer.py" using Python version 3.8+.
+
+    Compatible with the following roms for NDS:
+        TWEWY_NA    3bfc95753b37c97a6d30018630048a51
+        TWEWY_JP    8c2f434ae2ae92c4f0e801eee670063c
+
+    This randomizer has the following flags:
+        a  Randomize threads abilities.
+        b  Randomize shop stocks and brands.
+        d  Randomize enemy drops.
+        f  Randomize food.
+        t  Randomize threads stats.
+        v  Randomize nothing.
+
+    Additionally, the level of randomness can be adjusted to your preference. A value of 0 changes virtually nothing, a value of 1 is extremely unbalanced (i.e., final boss stats on day 1), and 0.5 is the recommended, default setting.
